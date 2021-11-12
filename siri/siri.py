@@ -38,7 +38,7 @@ async def start(client, message):
     )
     
     @Client.on_message(filters.command('help') & filters.private)
-async def help(client, message):
+def help(client, message):
     await message.reply_photo(photo=Config.START_IMG, caption=Config.HELP_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
