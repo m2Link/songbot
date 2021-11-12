@@ -26,7 +26,8 @@ async def start(client, message):
          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(BUTTON1, url=GITCLONE)
+                    InlineKeyboardButton(BUTTON1, url=GITCLONE),
+                    InlineKeyboardButton('⚙ Help', callback_data='help')
                  ],[
                     InlineKeyboardButton(OWNER, url=f"https://telegram.dog/{Config.OWNER}"),
                     InlineKeyboardButton(ABS, url=B2)
@@ -38,7 +39,7 @@ async def start(client, message):
     
     @Client.on_message(filters.command('help') & filters.private)
 async def start(client, message):
-    await message.reply_photo(photo=Config.START_IMG, caption=Config.START_MSG.format(message.from_user.mention),
+    await message.reply_photo(photo=Config.START_IMG, caption=Config.HELP_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [
