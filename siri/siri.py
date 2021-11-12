@@ -15,6 +15,8 @@ OWNER="🧑‍💻Developer"
 GITCLONE="https://t.me/m2botz"
 B2="https://t.me/m2botzsupport"
 BUTTON1="💬 Update Channel"
+BUTTON2="Close ✖️"
+B3=callback_data='close'
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -27,7 +29,7 @@ async def start(client, message):
             [
                 [
                     InlineKeyboardButton(BUTTON1, url=GITCLONE),
-                    InlineKeyboardButton('Close ✖️', callback_data='close')
+                    InlineKeyboardButton('BUTTON2', B3)
                  ],
                     InlineKeyboardButton(OWNER, url=f"https://telegram.dog/{Config.OWNER}"),
                     InlineKeyboardButton(ABS, url=B2)
