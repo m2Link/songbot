@@ -27,8 +27,8 @@ async def start(client, message):
             [
                 [
                     InlineKeyboardButton(BUTTON1, url=GITCLONE),
-                    InlineKeyboardButton('⚙ Help', callback_data='help')
-                 ],[
+                    InlineKeyboardButton('Close ✖️', callback_data='close')
+                 ],
                     InlineKeyboardButton(OWNER, url=f"https://telegram.dog/{Config.OWNER}"),
                     InlineKeyboardButton(ABS, url=B2)
             ]
@@ -36,24 +36,6 @@ async def start(client, message):
         ),
         reply_to_message_id=message.message_id
     )
-    
-@Client.on_message(filters.command('help')
-async def help(client, message):
-    await message.reply_photo(photo=Config.START_IMG, caption=Config.HELP_MSG.format(message.from_user.mention),
-         reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(🧑‍💻Developer, url="https://t.me/ask_admin01"),
-                    InlineKeyboardButton('Close ✖️', callback_data='close')
-                 ],[
-                    InlineKeyboardButton(💬 Update Channel, url="https://t.me/m2botz"),
-                    InlineKeyboardButton(ABS, url=B2)
-            ]
-          ]
-        ),
-        reply_to_message_id=message.message_id
-    )
-
 @Client.on_message(filters.command(['song']))
 def a(client, message):
     query = ''
