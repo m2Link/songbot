@@ -9,12 +9,12 @@ import time
 from config import Config
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-ABS="Report Bug🐞"
+ABS="🗣 Support Group"
 APPER="shamilhabeeb"
-OWNER="Owner"
+OWNER="🧑‍💻Developer"
 GITCLONE="https://t.me/m2botz"
 B2="https://t.me/m2botzsupport"
-BUTTON1="Channel🔰"
+BUTTON1="💬 Update Channel"
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -35,6 +35,21 @@ async def start(client, message):
         ),
         reply_to_message_id=message.message_id
     )
+    
+    @Client.on_message(filters.command('help') & filters.private)
+async def start(client, message):
+    await message.reply_photo(photo=Config.START_IMG, caption=Config.START_MSG.format(message.from_user.mention),
+         reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(🧑‍💻Developer, url="https://t.me/ask_admin01"),
+                    InlineKeyboardButton('Close ✖️', callback_data='close')
+                 ],[
+                    InlineKeyboardButton(💬 Update Channel, url="https://t.me/m2botz"),
+                    InlineKeyboardButton(ABS, url=B2)
+            ]
+          ]
+        ),
 
 
 @Client.on_message(filters.command(['song']))
